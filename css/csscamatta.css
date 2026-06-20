@@ -1,0 +1,364 @@
+:root {
+    --bg-dark: #121212;
+    --bg-navbar: #1a1a1a;
+    --primary-red: #e60000;
+    --text-white: #ffffff;
+    --text-gray: #aaaaaa;
+}
+
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+}
+
+/* Estilos del Navbar */
+.navbar {
+    background-color: var(--bg-navbar);
+    border-bottom: 2px solid var(--primary-red); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Marca / Logo */
+.nav-brand {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.oval-badge {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 6px 24px;
+    padding-left: 8px; 
+    border-radius: 50px;
+    border-color: #8a0000 !important;
+    border: 2px, solid #8a0000;
+    overflow: hidden; 
+    background: linear-gradient(135deg, #1c0000 0%, #000000 100%);
+    box-shadow: inset 0 0 15px rgba(230, 0, 0, 0.2), 0 4px 15px rgba(0, 0, 0, 0.6);
+    z-index: 1;
+}
+
+/* LA LUZ RECORRIENDO EL BORDE (Efecto Neon Circular) */
+.oval-badge::before {
+    content: '';
+    position: absolute;
+    top: -54%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: conic-gradient(
+        transparent, 
+        transparent, 
+        var(--primary-red), 
+        transparent 30%
+    );
+    animation: rotarLuz 4s linear infinite;
+    z-index: -2;
+}
+
+/* Máscara interna para que la luz solo se vea en el borde de 2px */
+.oval-badge::after {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background: radial-gradient(circle, #8a0000 0%, #1a0000 70%, #050505 100%);
+    border-radius: 50px;
+    z-index: -1;
+}
+
+/* Ajuste del Logo para que resalte dentro del óvalo */
+.nav-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+/* Animación de la rotación del rayo de luz */
+@keyframes rotarLuz {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: 1.1;
+}
+
+.brand-name {
+    color: var(--text-white) !important;
+    font-size: 1.6rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* El eslogan caligráfico idéntico al logo original */
+.brand-slogan {
+    font-family: 'Dancing Script', cursive;
+    color: var(--text-white);
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: none; 
+    letter-spacing: 0.5px;
+    padding-top: 2px;
+    
+    /* El efecto de relieve y borde oscuro del material aportado */
+    text-shadow: 
+        1px 1px 0px rgba(0, 0, 0, 0.8),
+        2px 2px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Botón del Carrito */
+.cart-button {
+    background: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--text-white);
+    padding: 8px 16px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.cart-button:hover {
+    background-color: var(--primary-red);
+    transform: scale(1.05);
+}
+
+/* Contador del carrito */
+.cart-badge {
+    background-color: var(--text-white);
+    color: var(--bg-dark);
+    font-size: 0.8rem;
+    font-weight: bold;
+    padding: 2px 7px;
+    border-radius: 50%;
+}
+
+/* Sección Principal del Menú */
+.menu-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+/* Contenedor de Botones de Categorías */
+.categories-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* Para que en celulares no se corte */
+}
+
+.category-btn {
+    background-color: var(--bg-navbar);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-white);
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.category-btn:hover, .category-btn.active {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+    box-shadow: 0 0 10px rgba(230, 0, 0, 0.4);
+}
+
+/* GRILLA DE PRODUCTOS (Uso de CSS Grid Inteligente) */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+/* Tarjeta de Producto */
+.product-card {
+    background-color: var(--bg-navbar);
+    border-radius: 24px; /* Un poco más curvo para acompañar el volumen */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    
+    /* Incrementamos la separación superior de la grilla para dar espacio al desborde */
+    margin-top: 40px; 
+    
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.4);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+
+/* Al pasar el mouse, la tarjeta se eleva y el borde se enciende */
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(230, 0, 0, 0.25), 0 15px 30px rgba(0, 0, 0, 0.6);
+    border-color: var(--primary-red);
+}
+
+/* CONTENEDOR DE LA IMAGEN: Ahora permite el desborde hacia arriba */
+.product-image-container {
+    height: 160px; /* Reducimos la altura del contenedor para forzar el desborde */
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible; /* ¡CLAVE! Permite que la imagen sobresalga del límite del card */
+}
+
+/* MARCO GIGANTE CON LUZ TRASERA (GLOW) */
+.product-placeholder {
+    width: 200px;  
+    height: 200px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: -50px; 
+    background: transparent;
+    
+    /* Forzamos que el contenedor sea un círculo perfecto para evitar bordes cuadrados */
+    border-radius: 50%;
+    
+    /* Resplandor radial rojo detrás del PNG */
+    background-image: radial-gradient(circle, rgba(230, 0, 0, 0.4) 0%, transparent 70%);
+    
+    /* Máscara radial ultra-suave corregida: difumina fuertemente los bordes externos */
+    -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+    mask-image: radial-gradient(circle, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 75%);
+}
+
+/* LA IMAGEN PNG EN SÍ MISMA */
+.product-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    /* Sombra de contorno del producto muy marcada para simular volumen real */
+    filter: drop-shadow(0px 15px 20px rgba(0, 0, 0, 0.8));
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ¡EFECTO IMPACTO! Al hacer hover en la tarjeta, el producto se agranda y se acerca al usuario */
+.product-card:hover .product-placeholder img {
+    transform: scale(1.15) translateY(-5px);
+    filter: drop-shadow(0px 20px 25px rgba(230, 0, 0, 0.5)); /* La sombra del PNG se vuelve roja */
+}
+
+/* Ajuste de padding en la información para compensar el espacio */
+.product-info {
+    padding: 24px;
+    padding-top: 15px; /* Espacio ideal para que el texto no choque con el producto flotante */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--text-white);
+}
+
+.product-description {
+    font-size: 0.85rem;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: 24px;
+    flex-grow: 1;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.product-price {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 900; /* Peso Black para que resalte al máximo */
+    font-size: 1.4rem;
+    color: #ff7300; /* Naranja enérgico y llamativo */
+    order: 2; /* Fuerza a que el precio se renderice a la derecha */
+    
+    /* Efecto de iluminación/resplandor de neón naranja */
+    text-shadow: 0 0 10px rgba(255, 115, 0, 0.5), 
+                 0 0 20px rgba(255, 115, 0, 0.2);
+    
+    letter-spacing: -0.5px; /* Junta un poco los números para un look más premium */
+    transition: all 0.3s ease;
+}
+
+.product-card:hover .product-price {
+    color: #ff8822;
+    text-shadow: 0 0 12px rgba(255, 136, 34, 0.7), 
+                 0 0 25px rgba(255, 136, 34, 0.4);
+    transform: scale(1.05); /* Un levísimo escalado para que llame la atención */
+}
+
+
+/* Botón de compra redondeado a juego */
+.add-to-cart-btn {
+    order: 1; /* Fuerza a que el botón se quede a la izquierda */
+    background-color: transparent;
+    border: 2px solid var(--primary-red);
+    color: var(--text-white);
+    padding: 10px 18px;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
+}
+
+.add-to-cart-btn:hover {
+    background-color: var(--primary-red);
+    box-shadow: 0 4px 12px rgba(230, 0, 0, 0.3);
+    transform: scale(1.03);
+}

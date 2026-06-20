@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camatta - Haciendo lo que nadie hace</title>
+    
+    <!-- Fuentes de Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;0,900;1,400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <!-- Enlace a nuestros estilos locales -->
+    <link rel="stylesheet" href="css/csscamatta.css">
+    <!-- Iconos externos (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <!-- Izquierda: Logo y Nombre -->
+            <a href="#" class="nav-brand">
+                <div class="oval-badge">
+                    <img src="images/LOGO CAMATTITA-2.png" alt="Logo de Camatta" class="nav-logo">
+                    <div class="brand-text">
+                        <span class="brand-name">CAMATTA</span>
+                        <span class="brand-slogan">Haciendo lo que nadie hace</span>
+                    </div>
+                </div>
+            </a>
+            <!-- Derecha: Botón del Carrito -->
+            <div class="nav-actions">
+                <button id="cart-btn" class="cart-button" aria-label="Ver carrito de compras">
+                    <i class="fa-solid fa-basket-shopping"></i>
+                    <span id="cart-count" class="cart-badge">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+<main class="menu-section">
+        
+        <!-- Categorías (Filtros rápidos) -->
+        <div class="categories-container">
+            <button class="category-btn active" data-category="todos">Todos</button>
+            <button class="category-btn" data-category="hamburguesas">Hamburguesas</button>
+            <button class="category-btn" data-category="papas">Papas Premium</button>
+            <button class="category-btn" data-category="bebidas">Bebidas</button>
+        </div>
+
+        <!-- Grilla de Productos -->
+        <div class="products-grid">
+            
+            <!-- Producto 1: Hamburguesa -->
+            <div class="product-card" data-category="hamburguesas">
+                <div class="product-image-container">
+                    <!-- Aquí irá la foto real de tus hamburguesas -->
+                    <div class="product-placeholder"><img src="images/burgers.png" alt="Hamburguesas"></div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Camatta Burger</h3>
+                    <p class="product-description">Doble carne, doble cheddar, bacon crocante y nuestra salsa secreta Camatta en pan de papa.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$11.000</span>
+                        <button class="add-to-cart-btn" aria-label="Agregar Camatta Burger al pedido">
+                            Agregar <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 2: Papas -->
+            <div class="product-card" data-category="papas">
+                <div class="product-image-container">
+                    <div class="product-placeholder"><img src="images/papas.png" alt="Papas Especiales"></div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Papas Parrilleras</h3>
+                    <p class="product-description">Papas con queso parmesano, criolla especial, y salchicas parrilleras.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$15.000</span>
+                        <button class="add-to-cart-btn" aria-label="Agregar Papas Parrilleras al pedido">
+                            Agregar <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Producto 3: Bebida -->
+            <div class="product-card" data-category="bebidas">
+                <div class="product-image-container">
+                    <div class="product-placeholder"><img src="images/cola.png" alt="Bebidas"></div>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Refresco 500ml</h3>
+                    <p class="product-description">Línea Coca-Cola bien fría para acompañar el mejor menú de la zona.</p>
+                    <div class="product-footer">
+                        <span class="product-price">$1.800</span>
+                        <button class="add-to-cart-btn" aria-label="Agregar Refresco al pedido">
+                            Agregar <i class="fa-solid fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <!-- Enlace a nuestro script local -->
+    <script src="js/jscamatta.js"></script>
+</body>
+</html>
