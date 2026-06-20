@@ -308,6 +308,17 @@ body {
     margin-bottom: 24px;
     flex-grow: 1;
 }
+.product-sub-description{
+   font-family: 'Montserrat', sans-serif;
+    font-weight: 700; 
+    font-size: 1.4rem;
+    color: #ff7300; 
+    order: 2; 
+    text-shadow: 0 0 10px rgba(255, 115, 0, 0.5), 
+                 0 0 20px rgba(255, 115, 0, 0.2);
+    letter-spacing: -0.8px; 
+    transition: all 0.3s ease; 
+}
 
 .product-footer {
     display: flex;
